@@ -27,14 +27,14 @@ function NetworkNode({ position, value, isActive, layerIndex, nodeIndex, onClick
   });
   
   // Color based on activation value
+  const intensity = Math.abs(value);
   const color = useMemo(() => {
-    const intensity = Math.abs(value);
     if (value > 0) {
       return new THREE.Color(intensity, intensity * 0.5, 0.2);
     } else {
       return new THREE.Color(0.2, intensity * 0.5, intensity);
     }
-  }, [value]);
+  }, [value, intensity]);
   
   return (
     <group position={position}>
